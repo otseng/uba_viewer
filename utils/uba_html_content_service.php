@@ -1,5 +1,4 @@
 <?php
-include_once('./conf/config.php');
 include_once('db_connection.php');
 include_once('uba_html_content_dao.php');
 

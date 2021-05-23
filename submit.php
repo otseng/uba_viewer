@@ -1,6 +1,5 @@
 <?php
-include_once('./utils/log.php');
-include_once('./utils/uba_html_content_service.php');
+include_once('config.php');
 
 try {
     $json = json_decode(file_get_contents('php://input'), true);
