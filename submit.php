@@ -5,6 +5,7 @@ try {
     $json = json_decode(file_get_contents('php://input'), true);
     $code = "";
     $content = "";
+    
     if (isset($json["code"]) && isset($json["content"])) {
         $code = $json["code"];
         $content = $json["content"];

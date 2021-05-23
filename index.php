@@ -13,6 +13,7 @@ function getValue($var,$val=null) {
 
 $content = "";
 $code = getValue('code');
+
 try {
     if ($code) {
         $object = UbaHtmlContentService::retrieveByCode($code);
@@ -21,6 +22,8 @@ try {
 } catch (Exception $e) {
     Log::error($e);
 }
+Log::debug("get content : " . $content);
+
 echo($content);
 
 ?>

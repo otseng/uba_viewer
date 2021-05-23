@@ -138,10 +138,10 @@ class Log
 	                    try
 	                    {
 	                        $filename = $entry['filename'];
-	                        if (!StringUtil::contains($filename,'/')) {
+	                        if (!Log::contains($filename,'/')) {
 	                        	$filename = $PW['dir']['log'].'/'.$filename;
 	                        }
-	                        FileUtil::append($filename, $msg);
+	                        Log::append($filename, $msg);
 	                    }
 	                    catch (PWException $e)
 	                    {
@@ -250,5 +250,49 @@ class Log
         
         return $new;
     }
+
+    static function startsWith($haystack,$needle) {
+		if (strpos($haystack,$needle) === 0) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+    static function contains($haystack,$needle) {
+		if (is_array($needle)) {
+			$arr = $needle;
+		}
+		else {
+			$arr = array($needle);	
+		}
+		
+		for ($i=0;$i<count($arr);$i++) { 
+       		$pos = strpos($haystack, $arr[$i]); 
+	 
+	       	if ($pos !== false) {
+	          	return true; 
+	       	}
+		}
+		
+		return false; 
+	}
+	 
+
+    static function append($filename, $msg)
+    {
+        $fp = fopen($filename, 'a');
+        if ($fp)
+        {
+            fwrite($fp, $msg);
+            fclose($fp);
+        }    
+        else
+        {
+            throw new FileException("Could not open " . $filename);
+        }
+    }
+    
 }
 ?>
