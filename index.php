@@ -20,9 +20,8 @@ try {
         $content = $object->content;
     }
 } catch (Exception $e) {
-    Log::error($e);
+    Log::debug($e);
 }
-Log::debug("get content : " . $content);
 
 echo($content);
 
