@@ -1,10 +1,11 @@
 <?php
-$PW['dir']['log'] = "log";
-
-$PW['db']['datasource']['platform'] = 'mysqli';
 $PW['db']['datasource']['database'] = 'uba_viewer';
 $PW['db']['datasource']['user']     = 'uba_viewer';
 $PW['db']['datasource']['password'] = 'uba_viewer';
+
+$PW['dir']['log'] = "log";
+
+$PW['db']['datasource']['platform'] = 'mysqli';
 $PW['db']['datasource']['server']   = '127.0.0.1';
 
 $PW['db']['datasource']['pw_core'] = array( 
